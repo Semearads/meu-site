@@ -8,45 +8,120 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: black;
+  background: #0b0b0b;
   color: white;
   text-align: center;
 }
 
+/* TOPO */
 .topo {
-  background: gold;
-  padding: 15px;
-}
-
-.topo img {
-  width: 120px;
-}
-
-.container {
+  background: linear-gradient(90deg, gold, #c9a300);
   padding: 20px;
 }
 
-h1 {
-  font-size: 28px;
+.topo img {
+  width: 130px;
+  animation: fadeDown 1s ease;
 }
 
+/* CONTAINER */
+.container {
+  padding: 30px 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animar {
+  animation: fadeUp 1s ease;
+}
+
+/* TEXTO */
+h1 {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.sub {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* IMAGEM */
 .banner {
   width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  margin-top: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  animation: fadeUp 1.5s ease;
 }
 
+/* BOX */
+.box {
+  background: #141414;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: left;
+  animation: fadeUp 1.2s ease;
+}
+
+.box h3 {
+  color: gold;
+}
+
+/* BOTÃO */
 button {
+  width: 100%;
   background: gold;
   color: black;
-  padding: 15px 25px;
+  padding: 18px;
   border: none;
-  font-size: 16px;
-  border-radius: 8px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
+  transition: 0.3s;
 }
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* INSTAGRAM */
+.instagram {
+  margin-top: 30px;
+  animation: fadeUp 1.5s ease;
+}
+
+.instagram a {
+  color: gold;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 </style>
 </head>
 
@@ -58,22 +133,37 @@ button {
 
 <div class="container">
 
-<h1>AGENDA LOTADA</h1>
+<h1 class="animar">AGENDA LOTADA</h1>
 
-<p><strong>Aprenda a atrair clientes todos os dias e parar de depender de indicação</strong></p>
+<p class="sub animar">
+Pare de depender de indicação e aprenda a atrair clientes todos os dias
+</p>
 
-<!-- COLOQUE UMA FOTO SUA OU DE RESULTADO -->
-<img src="banner.png" class="banner">
+<img src="banner.jpg" class="banner">
+
+<div class="box">
+  <h3>🔥 O que você vai aprender:</h3>
+  <p>✔ Atrair clientes pelo Instagram</p>
+  <p>✔ Criar conteúdo que vende</p>
+  <p>✔ Transformar seguidores em clientes</p>
+</div>
+
+<div class="box">
+  <h3>💰 Pra quem é:</h3>
+  <p>✔ Profissionais da beleza e estética</p>
+  <p>✔ Quem quer lotar a agenda</p>
+  <p>✔ Quem quer crescer de verdade</p>
+</div>
 
 <a href="https://wa.me/5511910832222">
   <button>QUERO LOTAR MINHA AGENDA</button>
 </a>
 
-</div><div style="margin-top: 30px;">
+<div class="instagram">
   <p>Me siga no Instagram:</p>
-  <a href="https://instagram.com/semear.abc" target="_blank" style="color: gold; font-weight: bold;">
-    @semear.abc
-  </a>
+  <a href="https://instagram.com/semear.abc">@semear.abc</a>
+</div>
+
 </div>
 
 </body>
