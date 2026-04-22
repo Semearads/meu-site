@@ -13,85 +13,69 @@ body {
   text-align: center;
 }
 
-/* TOPO */
 .topo {
-  background: linear-gradient(90deg, gold, #c9a300);
+  background: linear-gradient(90deg, rgb(193, 129, 0), #cace0575);
   padding: 20px;
 }
 
 .topo img {
   width: 130px;
-  animation: fadeDown 1s ease;
+  border-radius: 12px; /* borda suave */
 }
 
-/* CONTAINER */
 .container {
   padding: 30px 20px;
   max-width: 500px;
   margin: auto;
 }
 
-/* ANIMAÇÕES */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .animar {
-  animation: fadeUp 1s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
 }
 
-/* TEXTO */
+.animar.ativo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 h1 {
   font-size: 30px;
-  margin-top: 20px;
 }
 
 .sub {
   color: #ccc;
-  margin-bottom: 20px;
 }
 
-/* IMAGEM */
 .banner {
   width: 100%;
   border-radius: 12px;
   margin: 20px 0;
-  animation: fadeUp 1.5s ease;
 }
 
-/* BOX */
 .box {
   background: #141414;
   padding: 20px;
   border-radius: 12px;
   margin-top: 20px;
   text-align: left;
-  animation: fadeUp 1.2s ease;
 }
 
 .box h3 {
   color: gold;
 }
 
-/* BOTÃO */
+.numeros {
+  margin-top: 30px;
+}
+
+.numero {
+  font-size: 28px;
+  color: gold;
+  font-weight: bold;
+}
+
 button {
   width: 100%;
   background: gold;
@@ -110,10 +94,16 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* INSTAGRAM */
+.depoimento {
+  background: #141414;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
 .instagram {
   margin-top: 30px;
-  animation: fadeUp 1.5s ease;
 }
 
 .instagram a {
@@ -139,20 +129,30 @@ button:hover {
 Pare de depender de indicação e aprenda a atrair clientes todos os dias
 </p>
 
-<img src="banner.png" class="banner">
+<img src="banner.png" class="banner animar">
 
-<div class="box">
+<div class="box animar">
   <h3>🔥 O que você vai aprender:</h3>
   <p>✔ Atrair clientes pelo Instagram</p>
   <p>✔ Criar conteúdo que vende</p>
   <p>✔ Transformar seguidores em clientes</p>
 </div>
 
-<div class="box">
+<div class="box animar">
   <h3>💰 Pra quem é:</h3>
   <p>✔ Profissionais da beleza e estética</p>
   <p>✔ Quem quer lotar a agenda</p>
   <p>✔ Quem quer crescer de verdade</p>
+</div>
+
+<div class="numeros animar">
+  <p class="numero" id="clientes">0</p>
+  <p>Clientes impactados</p>
+</div>
+
+<div class="animar">
+  <div class="depoimento">"Depois que apliquei, minha agenda lotou em 7 dias!"</div>
+  <div class="depoimento">"Nunca tive tantos clientes vindo do Instagram"</div>
 </div>
 
 <a href="https://wa.me/5511910832222">
@@ -161,10 +161,33 @@ Pare de depender de indicação e aprenda a atrair clientes todos os dias
 
 <div class="instagram">
   <p>Me siga no Instagram:</p>
-  <a href="https://instagram.com/semear.abc">@semear.abc</a>
+  <a href="https://instagram.com/semear.abc" target="_blank">@semear.abc</a>
 </div>
 
 </div>
+
+<script>
+const elementos = document.querySelectorAll('.animar');
+
+window.addEventListener('scroll', () => {
+  elementos.forEach(el => {
+    const pos = el.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 50) {
+      el.classList.add('ativo');
+    }
+  });
+});
+
+let count = 0;
+const alvo = 500;
+const contador = document.getElementById('clientes');
+
+const intervalo = setInterval(() => {
+  count += 10;
+  contador.innerText = count + "+";
+  if (count >= alvo) clearInterval(intervalo);
+}, 50);
+</script>
 
 </body>
 </html>
