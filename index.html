@@ -355,6 +355,11 @@ function abrirChat(){
   if (!chat.classList.contains('show')) {
     chat.classList.add('show');
     iniciarChat();
+
+    // 🔥 FAZ SUMIR APÓS 20 SEGUNDOS
+    setTimeout(() => {
+      chat.classList.remove('show');
+    }, 20000);
   }
 }
 
