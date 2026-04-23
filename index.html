@@ -80,15 +80,15 @@ body {
 }
 .chat-box {
   position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 270px;
-  background: #1e1e1e;
+  top: 20px;
+  left: 20px;
+  width: 280px;
+  background: #e5ddd5;
   border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
   font-size: 13px;
-  z-index: 999;
+  z-index: 9999; /* 🔥 importante */
   display: none;
 }
 
@@ -319,7 +319,10 @@ setTimeout(() => {
 </script>
 
 <!-- BOTÃO WHATS -->
-<a href="#" class="whatsapp-top" id="btnZap">
+<a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
+   target="_blank"
+   class="whatsapp-top"
+   id="btnZap">
   💬 QUERO LOTAR MINHA AGENDA
 </a>
 <div class="chat-box" id="chatBox">
@@ -334,36 +337,56 @@ setTimeout(() => {
 
   <div class="msg" id="m4">Quero saber como funciona</div>
 
-  <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
-     target="_blank" 
-     class="chat-btn" 
-     id="btnChat">
-     FALAR NO WHATSAPP
-  </a>
+ <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
+   target="_blank"
+   class="chat-btn"
+   id="btnChat">
+   FALAR NO WHATSAPP
+</a>
 
 </div>
 <script>
-const btn = document.getElementById('btnZap');
+
 const chat = document.getElementById('chatBox');
 
-btn.addEventListener('click', function(e){
-  e.preventDefault();
-  chat.classList.add('show');
-  iniciarChat();
-});
 
+
+// função única pra abrir (evita duplicação)
+function abrirChat(){
+  if (!chat.classList.contains('show')) {
+    chat.classList.add('show');
+    iniciarChat();
+  }
+}
+
+// inicia mensagens
 function iniciarChat(){
+
+  const m1 = document.getElementById('m1');
+  const m2 = document.getElementById('m2');
+  const m3 = document.getElementById('m3');
+  const m4 = document.getElementById('m4');
+  const typing = document.getElementById('typing');
+  const btnChat = document.getElementById('btnChat');
 
   setTimeout(() => { m1.style.display = 'block'; }, 500);
   setTimeout(() => { m2.style.display = 'block'; }, 1500);
   setTimeout(() => { typing.style.display = 'block'; }, 2500);
+
   setTimeout(() => {
     typing.style.display = 'none';
     m3.style.display = 'block';
   }, 4000);
+
   setTimeout(() => { m4.style.display = 'block'; }, 5200);
   setTimeout(() => { btnChat.style.display = 'block'; }, 6500);
 }
+
+// 🔥 ABRE AUTOMÁTICO APÓS 5 SEGUNDOS
+setTimeout(() => {
+  abrirChat();
+}, 5000);
+
 </script>
 </body>
 </html>
