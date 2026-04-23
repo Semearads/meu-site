@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Semear Ads | Agenda Lotada</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
   margin: 0;
@@ -13,14 +15,21 @@ body {
   text-align: center;
 }
 
+/* 🔽 TOPO NORMAL (não fixo) */
 .topo {
   background: linear-gradient(90deg, rgb(193, 129, 0), #cace0575);
   padding: 20px;
 }
 
 .topo img {
-  width: 130px;
-  border-radius: 12px; /* borda suave */
+  width: 120px;
+  border-radius: 12px;
+}
+
+/* 🔥 BANNER PRIMEIRO */
+.banner {
+  width: 100%;
+  display: block;
 }
 
 .container {
@@ -29,6 +38,7 @@ body {
   margin: auto;
 }
 
+/* 🔥 ANIMAÇÕES */
 .animar {
   opacity: 0;
   transform: translateY(40px);
@@ -46,12 +56,6 @@ h1 {
 
 .sub {
   color: #ccc;
-}
-
-.banner {
-  width: 100%;
-  border-radius: 12px;
-  margin: 20px 0;
 }
 
 .box {
@@ -111,12 +115,15 @@ button:hover {
   font-weight: bold;
   text-decoration: none;
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- 🔥 BANNER PRIMEIRO (SEM ANIMAÇÃO) -->
+<img src="banner.png" class="banner">
+
+<!-- 🔽 TOPO AGORA ABAIXO -->
 <div class="topo">
   <img src="logosemearads.png">
 </div>
@@ -128,8 +135,6 @@ button:hover {
 <p class="sub animar">
 Pare de depender de indicação e aprenda a atrair clientes todos os dias
 </p>
-
-<img src="banner.png" class="banner animar">
 
 <div class="box animar">
   <h3>🔥 O que você vai aprender:</h3>
@@ -169,14 +174,18 @@ Pare de depender de indicação e aprenda a atrair clientes todos os dias
 <script>
 const elementos = document.querySelectorAll('.animar');
 
-window.addEventListener('scroll', () => {
+function animarAoRolar() {
   elementos.forEach(el => {
     const pos = el.getBoundingClientRect().top;
     if (pos < window.innerHeight - 50) {
       el.classList.add('ativo');
     }
   });
-});
+}
+
+/* 🔥 roda ao carregar e ao rolar */
+window.addEventListener('scroll', animarAoRolar);
+window.addEventListener('load', animarAoRolar);
 
 let count = 0;
 const alvo = 500;
@@ -190,4 +199,4 @@ const intervalo = setInterval(() => {
 </script>
 
 </body>
-</html><meta name="viewport" content="width=device-width, initial-scale=1.0">
+</html>
