@@ -6,13 +6,126 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+<style>.whatsapp-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+/* quando aparece */
+.whatsapp-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ícone */
+.whatsapp-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* brilho */
+.whatsapp-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.whatsapp-top:hover::before {
+  opacity: 1;
+  animation: brilho 1.5s linear;
+}
+
+@keyframes brilho {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* pulso */
+@keyframes pulseZap {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.whatsapp-top {
+  animation: pulseZap 2.5s infinite;
+}
+
 body {
   margin: 0;
   font-family: Arial;
   background: #0b0b0b;
   color: white;
   text-align: center;
+}
+.chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 270px;
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  font-size: 13px;
+  z-index: 999;
+  display: none;
+}
+
+.chat-box.show {
+  display: block;
+}
+
+.msg {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.msg.gold {
+  background: #25D366;
+  color: white;
+  text-align: right;
+}
+
+.typing {
+  font-size: 12px;
+  color: #aaa;
+  display: none;
+}
+
+.chat-btn {
+  display: none;
+  text-align: center;
+  background: gold;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 /* 🔽 TOPO NORMAL (não fixo) */
@@ -126,6 +239,11 @@ button:hover {
 <!-- 🔽 TOPO AGORA ABAIXO -->
 <div class="topo">
   <img src="logosemearads.png">
+</div><a href="index.html" style="color: gold; margin: 10px;">Início</a>
+  <a href="quem-somos.html" style="color: gold; margin: 10px;">Quem Somos</a>
+  <a href="escola.html" style="color: gold; margin: 10px;">Escola</a>
+  <a href="salao.html" style="color: gold; margin: 10px;">Salão</a>
+  <a href="parceriacomsaloes.html" style="color: gold; margin: 10px;">Parcerias</a>
 </div>
 
 <div class="container">
@@ -196,7 +314,58 @@ const intervalo = setInterval(() => {
   contador.innerText = count + "+";
   if (count >= alvo) clearInterval(intervalo);
 }, 50);
+</script><script>
+setTimeout(() => {
+  document.getElementById('btnZap').classList.add('show');
+}, 1500);
 </script>
 
+<!-- BOTÃO WHATS -->
+<a href="#" class="whatsapp-top" id="btnZap">
+  💬 QUERO LOTAR MINHA AGENDA
+</a>
+<div class="chat-box" id="chatBox">
+
+  <div class="msg" id="m1">Oi! Vi seu site agora 👀</div>
+
+  <div class="msg" id="m2">Vocês ajudam a conseguir clientes mesmo?</div>
+
+  <div class="typing" id="typing">digitando...</div>
+
+  <div class="msg gold" id="m3">Sim! Já ajudamos vários profissionais a lotar agenda 🔥</div>
+
+  <div class="msg" id="m4">Quero saber como funciona</div>
+
+  <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
+     target="_blank" 
+     class="chat-btn" 
+     id="btnChat">
+     FALAR NO WHATSAPP
+  </a>
+
+</div>
+<script>
+const btn = document.getElementById('btnZap');
+const chat = document.getElementById('chatBox');
+
+btn.addEventListener('click', function(e){
+  e.preventDefault();
+  chat.classList.add('show');
+  iniciarChat();
+});
+
+function iniciarChat(){
+
+  setTimeout(() => { m1.style.display = 'block'; }, 500);
+  setTimeout(() => { m2.style.display = 'block'; }, 1500);
+  setTimeout(() => { typing.style.display = 'block'; }, 2500);
+  setTimeout(() => {
+    typing.style.display = 'none';
+    m3.style.display = 'block';
+  }, 4000);
+  setTimeout(() => { m4.style.display = 'block'; }, 5200);
+  setTimeout(() => { btnChat.style.display = 'block'; }, 6500);
+}
+</script>
 </body>
 </html>
