@@ -337,6 +337,10 @@ setTimeout(() => {
 
   <div class="msg" id="m4">Quero saber como funciona</div>
 
+  <div class="typing" id="typing">digitando...</div>
+
+  <div class="msg gold" id="m5">Maravilha, procure nosso botão de Whatsapp para iniciarmos seu atendimento 🔥</div>
+
  <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
    target="_blank"
    class="whatsapp-top">
@@ -356,10 +360,10 @@ function abrirChat(){
     chat.classList.add('show');
     iniciarChat();
 
-    // 🔥 FAZ SUMIR APÓS 20 SEGUNDOS
+    // 🔥 FAZ SUMIR APÓS 35 SEGUNDOS
     setTimeout(() => {
       chat.classList.remove('show');
-    }, 20000);
+    }, 35000);
   }
 }
 
@@ -370,20 +374,30 @@ function iniciarChat(){
   const m2 = document.getElementById('m2');
   const m3 = document.getElementById('m3');
   const m4 = document.getElementById('m4');
+  const m5 = document.getElementById('m5');
   const typing = document.getElementById('typing');
   const btnChat = document.getElementById('btnChat');
 
   setTimeout(() => { m1.style.display = 'block'; }, 500);
   setTimeout(() => { m2.style.display = 'block'; }, 1500);
-  setTimeout(() => { typing.style.display = 'block'; }, 2500);
+  setTimeout(() => { typing.style.display = 'block'; }, 5000);
 
   setTimeout(() => {
     typing.style.display = 'none';
     m3.style.display = 'block';
-  }, 4000);
+  }, 10000);
 
-  setTimeout(() => { m4.style.display = 'block'; }, 5200);
-  setTimeout(() => { btnChat.style.display = 'block'; }, 6500);
+  setTimeout(() => { m4.style.display = 'block'; }, 13400);
+
+setTimeout(() => {
+    typing.style.display = 'none';
+    m4.style.display = 'block';
+  }, 15000);
+setTimeout(() => { typing.style.display = 'block'; }, 19000);
+
+  setTimeout(() => { m5.style.display = 'block'; }, 21400);
+
+  setTimeout(() => { btnChat.style.display = 'block'; }, 25000);
 }
 
 // 🔥 ABRE AUTOMÁTICO APÓS 5 SEGUNDOS
