@@ -5,7 +5,71 @@
 <title>Quem Somos | Semear Ads</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+<style>.whatsapp-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+/* quando aparece */
+.whatsapp-top.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ícone */
+.whatsapp-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* brilho */
+.whatsapp-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.whatsapp-top:hover::before {
+  opacity: 1;
+  animation: brilho 1.5s linear;
+}
+
+@keyframes brilho {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* pulso */
+@keyframes pulseZap {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.whatsapp-top {
+  animation: pulseZap 2.5s infinite;
+}
+
 body {
   margin: 0;
   font-family: Arial;
@@ -57,12 +121,14 @@ p {
 <body>
 
 <!-- MENU -->
-<div class="menu">
-  <a href="index.html">Home</a>
-  <a href="quem-somos.html">Quem somos</a>
-  <a href="escola.html">Nossa escola</a>
-  <a href="salao.html">Nosso salão</a>
-  <a href="investimento.html">Investimento</a>
+<div <div style="margin-top: 15px;">
+  <a href="index.html" style="color: gold; margin: 10px;">Início</a>
+  <a href="quem-somos.html" style="color: gold; margin: 10px;">Quem Somos</a>
+  <a href="escola.html" style="color: gold; margin: 10px;">Escola</a>
+  <a href="salao.html" style="color: gold; margin: 10px;">Salão</a>
+  <a href="parceriacomsaloes.html" style="color: gold; margin: 10px;">Parcerias</a>
+</div>
+  
 </div>
 
 <div class="container">
@@ -106,6 +172,21 @@ Nosso objetivo é simples: conectar você aos clientes certos, todos os dias, at
 </p>
 
 </div>
+<script>
+setTimeout(() => {
+  document.getElementById('btnZap').classList.add('show');
+}, 1500);
+</script>
+</body><a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
+   target="_blank" 
+   class="whatsapp-top" 
+   id="btnZap">
 
-</body>
-</html>
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="whatsapp-icon">
+  
+  QUERO LOTAR MINHA AGENDA
+</a>
+</a>
+</html><div style="margin-top: 15px;">
+  <a href="index.html" style="color: gold;">Voltar para início</a>
+</div>
