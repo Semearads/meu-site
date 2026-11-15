@@ -1,410 +1,512 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Semear Ads | Agenda Lotada</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Semear Ads | Agenda Lotada</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>.whatsapp-top {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: white;
-  padding: 14px 20px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  z-index: 999;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.5s;
-}
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* quando aparece */
-.whatsapp-top.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #050816;
+    }
 
-/* Ícone */
-.whatsapp-icon {
-  width: 22px;
-  height: 22px;
-}
+    body {
+      font-family: 'Manrope', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #F5F7FB;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-/* brilho */
-.whatsapp-top::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  opacity: 0;
-  transition: 0.5s;
-}
+    input, button, textarea, select { font: inherit; }
 
-.whatsapp-top:hover::before {
-  opacity: 1;
-  animation: brilho 1.5s linear;
-}
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      z-index: 1000;
+      background: linear-gradient(90deg, #D4AF37, #8B6E1F, #D4AF37);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      transition: width .6s ease;
+    }
 
-@keyframes brilho {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
+    .fs-btn {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+      background: rgba(255,255,255,.04);
+      color: #7E879B;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      transition: all .3s ease;
+    }
 
-/* pulso */
-@keyframes pulseZap {
-  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
-  70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
-  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-}
+    .fs-btn:hover {
+      background: rgba(255,255,255,.08);
+      color: #F5F7FB;
+      border-color: rgba(212,175,55,.3);
+    }
 
-.whatsapp-top {
-  animation: pulseZap 2.5s infinite;
-}
+    .fs-btn svg { width: 14px; height: 14px; }
 
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #0b0b0b;
-  color: white;
-  text-align: center;
-}
-.chat-box {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 280px;
-  background: #e5ddd5;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-  font-size: 13px;
-  z-index: 9999; /* 🔥 importante */
-  display: none;
-}
+    .sc {
+      position: fixed;
+      bottom: 24px;
+      left: 16px;
+      z-index: 998;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 10px;
+      background: rgba(0,0,0,.3);
+      color: #7E879B;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      backdrop-filter: blur(6px);
+    }
 
-.chat-box.show {
-  display: block;
-}
+    .sc .cn { color: #D4AF37; font-weight: 800; }
 
-.msg {
-  background: #2a2a2a;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  display: none;
-}
+    .ind {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      z-index: 998;
+      display: flex;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 20px;
+      background: rgba(0,0,0,.3);
+      transform: translateX(-50%);
+      backdrop-filter: blur(8px);
+    }
 
-.msg.gold {
-  background: #25D366;
-  color: white;
-  text-align: right;
-}
+    .ind .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      transition: all .4s ease;
+    }
 
-.typing {
-  font-size: 12px;
-  color: #aaa;
-  display: none;
-}
+    .ind .dot.active {
+      width: 28px;
+      border-radius: 5px;
+      background: #D4AF37;
+      box-shadow: 0 0 10px rgba(212,175,55,.6);
+    }
 
-.chat-btn {
-  display: none;
-  text-align: center;
-  background: gold;
-  color: black;
-  padding: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-}
+    .nav-arr {
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      z-index: 998;
+      display: flex;
+      gap: 8px;
+    }
 
-/* 🔽 TOPO NORMAL (não fixo) */
-.topo {
-  background: linear-gradient(90deg, rgb(193, 129, 0), #cace0575);
-  padding: 20px;
-}
+    .nav-arr button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      color: #AAB3C5;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: all .3s ease;
+    }
 
-.topo img {
-  width: 120px;
-  border-radius: 12px;
-}
+    .nav-arr button svg { width: 18px; height: 18px; }
 
-/* 🔥 BANNER PRIMEIRO */
-.banner {
-  width: 100%;
-  display: block;
-}
+    .nav-arr button:hover {
+      background: rgba(212,175,55,.2);
+      border-color: rgba(212,175,55,.4);
+      color: #fff;
+      transform: scale(1.05);
+    }
 
-.container {
-  padding: 30px 20px;
-  max-width: 500px;
-  margin: auto;
-}
+    .presentation { width: 100vw; height: 100vh; overflow: hidden; }
 
-/* 🔥 ANIMAÇÕES */
-.animar {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
-}
+    .slides {
+      display: flex;
+      height: 100%;
+      transition: transform .7s cubic-bezier(.22,1,.36,1);
+    }
 
-.animar.ativo {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .slide {
+      position: relative;
+      display: flex;
+      flex: 0 0 100vw;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0A0F24 0%, #070B1D 45%, #050816 100%);
+    }
 
-h1 {
-  font-size: 30px;
-}
+    .slide::before {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(900px 420px at 72% 18%, rgba(212,175,55,.14) 0%, transparent 42%),
+        radial-gradient(800px 380px at 35% 20%, rgba(212,175,55,.12) 0%, transparent 42%),
+        linear-gradient(180deg, #0F0E08 0%, #0B0A06 45%, #050504 100%);
+      content: '';
+      pointer-events: none;
+    }
 
-.sub {
-  color: #ccc;
-}
+    .slide::after {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: radial-gradient(rgba(255,255,255,.06) .8px, transparent .8px);
+      background-size: 24px 24px;
+      content: '';
+      opacity: .3;
+      pointer-events: none;
+    }
 
-.box {
-  background: #141414;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 20px;
-  text-align: left;
-}
+    .slide > * { position: relative; z-index: 1; }
 
-.box h3 {
-  color: gold;
-}
+    .slide-center {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 72px 20px 100px;
+    }
 
-.numeros {
-  margin-top: 30px;
-}
+    .gt {
+      background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #FFD700 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
 
-.numero {
-  font-size: 28px;
-  color: gold;
-  font-weight: bold;
-}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 8px 16px;
+      border: 1px solid rgba(212,175,55,.3);
+      border-radius: 999px;
+      background: rgba(212,175,55,.08);
+      color: #E8C65C;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-align: center;
+      text-transform: uppercase;
+    }
 
-button {
-  width: 100%;
-  background: gold;
-  color: black;
-  padding: 18px;
-  border: none;
-  font-size: 18px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: 0.3s;
-}
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #E8C65C, #B8860B);
+      box-shadow: 0 12px 36px rgba(212,175,55,.35);
+      color: #000;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      text-decoration: none;
+      transition: all .3s ease;
+      white-space: nowrap;
+    }
 
-button:hover {
-  transform: scale(1.05);
-}
+    .cta-btn:hover {
+      box-shadow: 0 20px 48px rgba(212,175,55,.5);
+      transform: scale(1.04) translateY(-2px);
+    }
 
-.depoimento {
-  background: #141414;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 15px;
-  font-size: 14px;
-}
+    .cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-.instagram {
-  margin-top: 30px;
-}
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.instagram a {
-  color: gold;
-  font-weight: bold;
-  text-decoration: none;
-}
-</style>
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { opacity: .55; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.07); }
+    }
+
+    .logo-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      border: 1px solid rgba(46,107,255,.35);
+      border-radius: 32px;
+      background: rgba(255,255,255,.05);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.5),
+        0 0 45px rgba(212,175,55,.28),
+        0 0 90px rgba(212,175,55,.16),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      animation: logoFloat 5s ease-in-out infinite;
+    }
+
+    .logo-wrap::after {
+      position: absolute;
+      inset: -12px;
+      z-index: -1;
+      border-radius: 40px;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(212,175,55,.28) 0%, rgba(212,175,55,.16) 45%, transparent 72%);
+      content: '';
+      filter: blur(8px);
+      animation: logoPulse 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .logo-img {
+      display: block;
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 24px;
+    }
+
+    .slide.active .au { animation: fadeUp .7s ease both; }
+
+    .d1 { animation-delay: .10s !important; }
+    .d2 { animation-delay: .22s !important; }
+    .d3 { animation-delay: .34s !important; }
+    .d4 { animation-delay: .46s !important; }
+    .d5 { animation-delay: .58s !important; }
+
+    .s1-wrap {
+      width: 100%;
+      max-width: 880px;
+      text-align: center;
+    }
+
+    .s1-title {
+      margin: 0 0 12px;
+      color: #F5F7FB;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.08;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .s1-title .gt { font-weight: 700; }
+
+    .s1-sub,
+    .s1-wrap .badge,
+    .s1-wrap .cta-btn {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .s1-sub {
+      max-width: 560px;
+      margin: 0 auto;
+      color: #AAB3C5;
+      font-size: clamp(13px, 1.8vw, 16px);
+      letter-spacing: .01em;
+      line-height: 1.55;
+    }
+
+    .s1-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .slide-center { padding: 80px 16px 110px; }
+      .sc { bottom: 16px; left: 10px; padding: 6px 10px; font-size: 11px; }
+      .ind { bottom: 16px; gap: 5px; padding: 6px 10px; }
+      .ind .dot { width: 7px; height: 7px; }
+      .ind .dot.active { width: 22px; }
+      .nav-arr { right: 10px; bottom: 12px; gap: 6px; }
+      .nav-arr button { width: 38px; height: 38px; border-radius: 10px; }
+      .nav-arr button svg { width: 16px; height: 16px; }
+    }
+
+    @media (max-width: 640px) {
+      .fs-btn { display: none; }
+      .slide-center { padding: 80px 14px 120px; }
+      .s1-wrap { padding: 0 4px; }
+      .logo-img { max-width: 180px; }
+
+      .s1-title {
+        margin-bottom: 10px;
+        font-size: 26px;
+        line-height: 1.08;
+      }
+
+      .s1-sub { margin-bottom: 4px; font-size: 13px; line-height: 1.55; }
+      .s1-stack { gap: 10px; }
+      .badge { margin-bottom: 16px; padding: 7px 12px; font-size: 10px; }
+    }
+
+    @media (max-width: 380px) {
+      .slide-center { padding: 90px 12px 130px; }
+      .logo-img { max-width: 160px; }
+      .s1-title { font-size: 23px; }
+      .s1-sub { font-size: 12px; }
+    }
+
+    @media (max-width: 340px) {
+      .slide-center { padding: 72px 10px 110px; }
+      .logo-img { max-width: 140px; }
+      .s1-title { font-size: 21px; }
+      .s1-sub { font-size: 11px; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="progress" id="prog" style="width:100%"></div>
 
-<!-- 🔥 BANNER PRIMEIRO (SEM ANIMAÇÃO) -->
-<img src="banner.png" class="banner">
+  <button class="fs-btn" onclick="toggleFs()" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
+    </svg>
+    <span id="fsTxt">Tela cheia</span>
+  </button>
 
-<!-- 🔽 TOPO AGORA ABAIXO -->
-<div class="topo">
-  <img src="logosemearads.png">
-</div><a href="index.html" style="color: gold; margin: 10px;">Início</a>
-  <a href="quem-somos.html" style="color: gold; margin: 10px;">Quem Somos</a>
-  <a href="escola.html" style="color: gold; margin: 10px;">Escola</a>
-  <a href="salao.html" style="color: gold; margin: 10px;">Salão</a>
-  <a href="parceriacomsaloes.html" style="color: gold; margin: 10px;">Parcerias</a>
-</div>
+  <div class="sc"><span class="cn" id="cn">1</span> / 1</div>
+  <div class="ind" id="ind"></div>
 
-<div class="container">
+  <div class="presentation">
+    <div class="slides" id="sw">
+      <section class="slide active">
+        <div class="slide-center">
+          <div class="s1-wrap">
+            <div class="s1-stack">
+              <div class="au d1">
+                <div class="logo-wrap">
+                  <img src="logosemearads.png" alt="Logo Semear Ads" class="logo-img">
+                </div>
+              </div>
 
-<h1 class="animar">AGENDA LOTADA</h1>
+              <h2 class="au d2 s1-title">
+                SUA AGENDA <span class="gt">LOTADA COMEÇA AQUI</span>
+              </h2>
 
-<p class="sub animar">
-Pare de depender de indicação e aprenda a atrair clientes todos os dias
-</p>
+              <p class="au d3 s1-sub">
+                Pare de depender de indicação e aprenda a atrair clientes todos os dias pelo marketing digital.
+              </p>
 
-<div class="box animar">
-  <h3>🔥 O que você vai aprender:</h3>
-  <p>✔ Atrair clientes pelo Instagram</p>
-  <p>✔ Criar conteúdo que vende</p>
-  <p>✔ Transformar seguidores em clientes</p>
-</div>
+              <p class="au d3 s1-sub">
+                Profissionais da beleza e estética lotam a agenda com o Semear Ads.
+              </p>
 
-<div class="box animar">
-  <h3>💰 Pra quem é:</h3>
-  <p>✔ Profissionais da beleza e estética</p>
-  <p>✔ Quem quer lotar a agenda</p>
-  <p>✔ Quem quer crescer de verdade</p>
-</div>
+              <div class="badge au d4">Instagram que vende · Tráfego pago · Conteúdo que atrai</div>
 
-<div class="numeros animar">
-  <p class="numero" id="clientes">0</p>
-  <p>Clientes impactados</p>
-</div>
+              <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" target="_blank" rel="noopener" class="cta-btn au d5"
+                 style="animation:none;white-space:normal;text-align:center;max-width:90%">
+                QUERO LOTAR MINHA AGENDA
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
-<div class="animar">
-  <div class="depoimento">"Depois que apliquei, minha agenda lotou em 7 dias!"</div>
-  <div class="depoimento">"Nunca tive tantos clientes vindo do Instagram"</div>
-</div>
+  <script>
+    const T = 1;
+    let C = 0;
 
+    const W = document.getElementById('sw');
+    const CN = document.getElementById('cn');
+    const Ind = document.getElementById('ind');
 
-
-<div class="instagram">
-  <p>Me siga no Instagram:</p>
-  <a href="https://instagram.com/semear.abc" target="_blank">@semear.abc</a>
-</div>
-
-</div>
-
-<script>
-const elementos = document.querySelectorAll('.animar');
-
-function animarAoRolar() {
-  elementos.forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-    if (pos < window.innerHeight - 50) {
-      el.classList.add('ativo');
+    for (let i = 0; i < T; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => go(i);
+      Ind.appendChild(dot);
     }
-  });
-}
 
-/* 🔥 roda ao carregar e ao rolar */
-window.addEventListener('scroll', animarAoRolar);
-window.addEventListener('load', animarAoRolar);
+    function upd() {
+      Ind.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === C);
+      });
+      CN.textContent = C + 1;
+    }
 
-let count = 0;
-const alvo = 500;
-const contador = document.getElementById('clientes');
+    function go(i) {
+      if (i < 0 || i >= T) return;
+      C = i;
+      W.style.transform = `translateX(-${C * 100}vw)`;
+      upd();
+    }
 
-const intervalo = setInterval(() => {
-  count += 10;
-  contador.innerText = count + "+";
-  if (count >= alvo) clearInterval(intervalo);
-}, 50);
-</script><script>
-setTimeout(() => {
-  document.getElementById('btnZap').classList.add('show');
-}, 1500);
-</script>
+    function toggleFs() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    }
 
-<!-- BOTÃO WHATS -->
-<a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
-   target="_blank"
-   class="whatsapp-top"
-   id="btnZap">
-  💬 QUERO LOTAR MINHA AGENDA
-</a>
-<div class="chat-box" id="chatBox">
+    document.addEventListener('fullscreenchange', () => {
+      const text = document.getElementById('fsTxt');
+      if (text) text.textContent = document.fullscreenElement ? 'Sair' : 'Tela cheia';
+    });
 
-  <div class="msg" id="m1">Oi! Vi seu site agora 👀</div>
-
-  <div class="msg" id="m2">Vocês ajudam a conseguir clientes mesmo?</div>
-
-  <div class="typing" id="typing">digitando...</div>
-
-  <div class="msg gold" id="m3">Sim! Já ajudamos vários profissionais a lotar agenda 🔥</div>
-
-  <div class="msg" id="m4">Quero saber como funciona</div>
-
-  <div class="typing" id="typing">digitando...</div>
-
-  <div class="msg gold" id="m5">Maravilha, procure nosso botão de Whatsapp para iniciarmos seu atendimento 🔥</div>
-
- <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" 
-   target="_blank"
-   class="whatsapp-top">
-  💬 QUERO LOTAR MINHA AGENDA
-</a>
-
-</div>
-<script>
-
-const chat = document.getElementById('chatBox');
-
-
-
-// função única pra abrir (evita duplicação)
-function abrirChat(){
-  if (!chat.classList.contains('show')) {
-    chat.classList.add('show');
-    iniciarChat();
-
-    // 🔥 FAZ SUMIR APÓS 35 SEGUNDOS
-    setTimeout(() => {
-      chat.classList.remove('show');
-    }, 35000);
-  }
-}
-
-// inicia mensagens
-function iniciarChat(){
-
-  const m1 = document.getElementById('m1');
-  const m2 = document.getElementById('m2');
-  const m3 = document.getElementById('m3');
-  const m4 = document.getElementById('m4');
-  const m5 = document.getElementById('m5');
-  const typing = document.getElementById('typing');
-  const btnChat = document.getElementById('btnChat');
-
-  setTimeout(() => { m1.style.display = 'block'; }, 500);
-  setTimeout(() => { m2.style.display = 'block'; }, 1500);
-  setTimeout(() => { typing.style.display = 'block'; }, 5000);
-
-  setTimeout(() => {
-    typing.style.display = 'none';
-    m3.style.display = 'block';
-  }, 10000);
-
-  setTimeout(() => { m4.style.display = 'block'; }, 13400);
-
-setTimeout(() => {
-    typing.style.display = 'none';
-    m4.style.display = 'block';
-  }, 16000);
-setTimeout(() => { typing.style.display = 'block'; }, 19000);
-
-  setTimeout(() => { m5.style.display = 'block'; }, 21400);
-
-  setTimeout(() => { btnChat.style.display = 'block'; }, 25000);
-}
-
-// 🔥 ABRE AUTOMÁTICO APÓS 5 SEGUNDOS
-setTimeout(() => {
-  abrirChat();
-}, 5000);
-
-</script>
+    upd();
+  </script>
 </body>
 </html>
