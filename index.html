@@ -490,6 +490,213 @@
       flex-wrap: wrap;
     }
 
+    /* SLIDE 3 - INVESTIMENTO */
+    .s3-wrap {
+      width: 100%;
+      max-width: 980px;
+      text-align: center;
+    }
+
+    .s3-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #D4AF37;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .s3-title {
+      margin: 0 auto 16px;
+      color: #F5F7FB;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.05;
+      text-align: center;
+      text-wrap: balance;
+      max-width: 760px;
+    }
+
+    .s3-title .gt { font-weight: 700; }
+
+    .s3-sub {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: #AAB3C5;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(13px, 1.8vw, 16px);
+      letter-spacing: .01em;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .price-ticket {
+      display: inline-block;
+      margin-bottom: 32px;
+      padding: 28px 44px;
+      border: 1px solid rgba(212,175,55,.35);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(212,175,55,.04));
+      box-shadow: 0 20px 60px rgba(212,175,55,.15);
+    }
+
+    .price-label {
+      display: block;
+      margin-bottom: 4px;
+      color: #8B93A7;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .price-value {
+      display: block;
+      color: #F5F7FB;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .price-value .gt {
+      background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #FFD700 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
+
+    .price-once {
+      display: block;
+      margin-top: 8px;
+      color: #E8C65C;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .share-card {
+      margin-bottom: 32px;
+      padding: 18px 24px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .share-title {
+      margin-bottom: 16px;
+      color: #F5F7FB;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .share-title .gt2 { color: #E8C65C; }
+
+    .examples {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .example {
+      flex: 1 1 260px;
+      max-width: 320px;
+      padding: 20px;
+      border: 1px solid rgba(212,175,55,.18);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      text-align: left;
+      transition: all .3s ease;
+    }
+
+    .example:hover {
+      background: rgba(212,175,55,.06);
+      border-color: rgba(212,175,55,.35);
+      transform: translateY(-4px);
+    }
+
+    .example-num {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #D4AF37;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .example-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+    }
+
+    .example-row .label {
+      color: #8B93A7;
+    }
+
+    .example-row .val {
+      color: #F5F7FB;
+      font-weight: 700;
+    }
+
+    .example-divider {
+      height: 1px;
+      margin: 10px 0;
+      background: rgba(212,175,55,.15);
+    }
+
+    .example-result {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+    }
+
+    .example-result .label {
+      color: #AAB3C5;
+      font-weight: 600;
+    }
+
+    .example-result .val {
+      color: #E8C65C;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .s3-note {
+      max-width: 520px;
+      margin: 0 auto 28px;
+      color: #8B93A7;
+      font-family: 'Manrope', sans-serif;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .s3-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 768px) {
       .slide-center { padding: 80px 16px 110px; }
       .sc { bottom: 16px; left: 10px; padding: 6px 10px; font-size: 11px; }
@@ -501,6 +708,9 @@
       .nav-arr button svg { width: 16px; height: 16px; }
       .steps { gap: 12px; }
       .step { flex: 1 1 160px; padding: 20px 16px; }
+      .examples { gap: 12px; }
+      .example { flex: 1 1 100%; max-width: 100%; }
+      .price-ticket { padding: 24px 32px; }
     }
 
     @media (max-width: 640px) {
@@ -524,6 +734,13 @@
       .step { flex: 1 1 100%; max-width: 100%; }
       .s2-actions { flex-direction: column; align-items: center; }
       .cta-btn { width: 100%; max-width: 320px; }
+
+      .s3-title { font-size: 28px; }
+      .s3-sub { margin-bottom: 22px; font-size: 13px; }
+      .price-ticket { margin-bottom: 24px; padding: 20px 24px; }
+      .price-value { font-size: 52px; }
+      .share-card { padding: 14px 16px; }
+      .s3-actions { flex-direction: column; align-items: center; }
     }
 
     @media (max-width: 380px) {
@@ -532,6 +749,8 @@
       .s1-title { font-size: 23px; }
       .s1-sub { font-size: 12px; }
       .s2-title { font-size: 25px; }
+      .s3-title { font-size: 25px; }
+      .price-value { font-size: 46px; }
     }
 
     @media (max-width: 340px) {
@@ -540,12 +759,13 @@
       .s1-title { font-size: 21px; }
       .s1-sub { font-size: 11px; }
       .s2-title { font-size: 22px; }
+      .s3-title { font-size: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" id="prog" style="width:50%"></div>
+  <div class="progress" id="prog" style="width:33.3%"></div>
 
   <button class="fs-btn" onclick="toggleFs()" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -554,7 +774,7 @@
     <span id="fsTxt">Tela cheia</span>
   </button>
 
-  <div class="sc"><span class="cn" id="cn">1</span> / 2</div>
+  <div class="sc"><span class="cn" id="cn">1</span> / 3</div>
   <div class="ind" id="ind"></div>
 
   <div class="presentation">
@@ -628,11 +848,97 @@
             </div>
 
             <div class="s2-actions au d5">
+              <button type="button" class="cta-btn" onclick="go(2)">
+                VER INVESTIMENTO
+              </button>
+
+              <button type="button" class="cta-btn outline" onclick="go(0)">
+                VOLTAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 - INVESTIMENTO -->
+      <section class="slide">
+        <div class="slide-center">
+          <div class="s3-wrap">
+            <div class="au d1 s3-kicker">Investimento</div>
+
+            <h2 class="au d2 s3-title">
+              ÚNICO INVESTIMENTO. <span class="gt">RESULTADO PRA VIDA INTEIRA.</span>
+            </h2>
+
+            <p class="au d3 s3-sub">
+              Taxa única de adesão aos serviços Semear Ads, paga uma única vez.
+            </p>
+
+            <div class="price-ticket au d3">
+              <span class="price-label">Taxa de adesão</span>
+              <span class="price-value">R$ <span class="gt">197</span></span>
+              <span class="price-once">Pago uma única vez</span>
+            </div>
+
+            <div class="share-card au d4">
+              <div class="share-title">Como funciona o repasse: <span class="gt2">40% só do que agendamos pra você</span></div>
+
+              <div class="examples">
+                <div class="example">
+                  <div class="example-num">Exemplo 1</div>
+                  <div class="example-row">
+                    <span class="label">Procedimento agendado</span>
+                    <span class="val">R$ 200,00</span>
+                  </div>
+                  <div class="example-row">
+                    <span class="label">Repasse Semear Ads (40%)</span>
+                    <span class="val">R$ 80,00</span>
+                  </div>
+                  <div class="example-divider"></div>
+                  <div class="example-result">
+                    <span class="label">Você fica com</span>
+                    <span class="val">R$ 120,00</span>
+                  </div>
+                </div>
+
+                <div class="example">
+                  <div class="example-num">Exemplo 2</div>
+                  <div class="example-row">
+                    <span class="label">Procedimento agendado</span>
+                    <span class="val">R$ 200,00</span>
+                  </div>
+                  <div class="example-row">
+                    <span class="label">Você vende outros serviços</span>
+                    <span class="val">+ R$ 300,00</span>
+                  </div>
+                  <div class="example-row">
+                    <span class="label">Total atendido</span>
+                    <span class="val">R$ 500,00</span>
+                  </div>
+                  <div class="example-row">
+                    <span class="label">Repasse Semear Ads</span>
+                    <span class="val">R$ 80,00</span>
+                  </div>
+                  <div class="example-divider"></div>
+                  <div class="example-result">
+                    <span class="label">Você fica com</span>
+                    <span class="val">R$ 420,00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="s3-note au d5">
+              O repasse é sempre <b>40% do valor do serviço que <i>nós</i> agendamos</b>.
+              Tudo que você vender além disso no atendimento fica 100% com você.
+            </p>
+
+            <div class="s3-actions au d5">
               <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" target="_blank" rel="noopener" class="cta-btn">
                 QUERO LOTAR MINHA AGENDA
               </a>
 
-              <button type="button" class="cta-btn outline" onclick="go(0)">
+              <button type="button" class="cta-btn outline" onclick="go(1)">
                 VOLTAR
               </button>
             </div>
@@ -657,7 +963,7 @@
   </div>
 
   <script>
-    const T = 2;
+    const T = 3;
     let C = 0;
 
     const W = document.getElementById('sw');
