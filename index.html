@@ -239,6 +239,7 @@
     .cta-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 16px 28px;
       border: none;
@@ -252,7 +253,7 @@
       letter-spacing: .01em;
       text-decoration: none;
       transition: all .3s ease;
-      white-space: nowrap;
+      text-align: center;
     }
 
     .cta-btn:hover {
@@ -261,6 +262,18 @@
     }
 
     .cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .cta-btn.outline {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,.5);
+      color: #E8C65C;
+      box-shadow: none;
+    }
+
+    .cta-btn.outline:hover {
+      background: rgba(212,175,55,.1);
+      border-color: rgba(212,175,55,.8);
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
@@ -325,6 +338,7 @@
     .d3 { animation-delay: .34s !important; }
     .d4 { animation-delay: .46s !important; }
     .d5 { animation-delay: .58s !important; }
+    .d6 { animation-delay: .70s !important; }
 
     .s1-wrap {
       width: 100%;
@@ -369,6 +383,113 @@
       gap: 12px;
     }
 
+    /* SLIDE 2 - COMO FUNCIONA */
+    .s2-wrap {
+      width: 100%;
+      max-width: 980px;
+      text-align: center;
+    }
+
+    .s2-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #D4AF37;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .s2-title {
+      margin: 0 auto 16px;
+      color: #F5F7FB;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.05;
+      text-align: center;
+      text-wrap: balance;
+      max-width: 760px;
+    }
+
+    .s2-title .gt { font-weight: 700; }
+
+    .s2-sub {
+      max-width: 600px;
+      margin: 0 auto 36px;
+      color: #AAB3C5;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(13px, 1.8vw, 16px);
+      letter-spacing: .01em;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1 1 220px;
+      max-width: 280px;
+      padding: 24px 20px;
+      border: 1px solid rgba(212,175,55,.18);
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
+      text-align: center;
+      transition: all .3s ease;
+    }
+
+    .step:hover {
+      background: rgba(212,175,55,.06);
+      border-color: rgba(212,175,55,.35);
+      transform: translateY(-4px);
+    }
+
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E8C65C, #B8860B);
+      color: #000;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .step-title {
+      margin-bottom: 8px;
+      color: #F5F7FB;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .step-desc {
+      color: #8B93A7;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .s2-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 768px) {
       .slide-center { padding: 80px 16px 110px; }
       .sc { bottom: 16px; left: 10px; padding: 6px 10px; font-size: 11px; }
@@ -378,6 +499,8 @@
       .nav-arr { right: 10px; bottom: 12px; gap: 6px; }
       .nav-arr button { width: 38px; height: 38px; border-radius: 10px; }
       .nav-arr button svg { width: 16px; height: 16px; }
+      .steps { gap: 12px; }
+      .step { flex: 1 1 160px; padding: 20px 16px; }
     }
 
     @media (max-width: 640px) {
@@ -395,6 +518,12 @@
       .s1-sub { margin-bottom: 4px; font-size: 13px; line-height: 1.55; }
       .s1-stack { gap: 10px; }
       .badge { margin-bottom: 16px; padding: 7px 12px; font-size: 10px; }
+
+      .s2-title { font-size: 28px; }
+      .s2-sub { margin-bottom: 28px; font-size: 13px; }
+      .step { flex: 1 1 100%; max-width: 100%; }
+      .s2-actions { flex-direction: column; align-items: center; }
+      .cta-btn { width: 100%; max-width: 320px; }
     }
 
     @media (max-width: 380px) {
@@ -402,6 +531,7 @@
       .logo-img { max-width: 160px; }
       .s1-title { font-size: 23px; }
       .s1-sub { font-size: 12px; }
+      .s2-title { font-size: 25px; }
     }
 
     @media (max-width: 340px) {
@@ -409,12 +539,13 @@
       .logo-img { max-width: 140px; }
       .s1-title { font-size: 21px; }
       .s1-sub { font-size: 11px; }
+      .s2-title { font-size: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" id="prog" style="width:100%"></div>
+  <div class="progress" id="prog" style="width:50%"></div>
 
   <button class="fs-btn" onclick="toggleFs()" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -423,11 +554,13 @@
     <span id="fsTxt">Tela cheia</span>
   </button>
 
-  <div class="sc"><span class="cn" id="cn">1</span> / 1</div>
+  <div class="sc"><span class="cn" id="cn">1</span> / 2</div>
   <div class="ind" id="ind"></div>
 
   <div class="presentation">
     <div class="slides" id="sw">
+
+      <!-- SLIDE 1 -->
       <section class="slide active">
         <div class="slide-center">
           <div class="s1-wrap">
@@ -452,19 +585,79 @@
 
               <div class="badge au d4">Nós Captamos · Nós Agendamos · Você Atende</div>
 
-              <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" target="_blank" rel="noopener" class="cta-btn au d5"
-                 style="animation:none;white-space:normal;text-align:center;max-width:90%">
-                QUERO LOTAR MINHA AGENDA
-              </a>
+              <button type="button" class="cta-btn au d5" onclick="go(1)">
+                SABER MAIS
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- SLIDE 2 -->
+      <section class="slide">
+        <div class="slide-center">
+          <div class="s2-wrap">
+            <div class="au d1 s2-kicker">O Método</div>
+
+            <h2 class="au d2 s2-title">
+              SUA AGENDA <span class="gt">CHEIA, TODO DIA</span>
+            </h2>
+
+            <p class="au d3 s2-sub">
+              Um processo simples, elegante e feito para profissionais da beleza que querem resultado sem complicação.
+            </p>
+
+            <div class="steps au d4">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-title">Captamos</div>
+                <div class="step-desc">Atraímos clientes ideais da sua região com estratégia de tráfego e conteúdo.</div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-title">Agendamos</div>
+                <div class="step-desc">Organizamos os agendamentos direto na sua agenda, sem você perder tempo.</div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-title">Você Atende</div>
+                <div class="step-desc">Você só precisa receber, encantar e fidelizar suas novas clientes.</div>
+              </div>
+            </div>
+
+            <div class="s2-actions au d5">
+              <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" target="_blank" rel="noopener" class="cta-btn">
+                QUERO LOTAR MINHA AGENDA
+              </a>
+
+              <button type="button" class="cta-btn outline" onclick="go(0)">
+                VOLTAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 
+  <div class="nav-arr">
+    <button type="button" onclick="go(C - 1)" aria-label="Slide anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button type="button" onclick="go(C + 1)" aria-label="Próximo slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+  </div>
+
   <script>
-    const T = 1;
+    const T = 2;
     let C = 0;
 
     const W = document.getElementById('sw');
@@ -484,6 +677,12 @@
         dot.classList.toggle('active', i === C);
       });
       CN.textContent = C + 1;
+
+      document.querySelectorAll('.slide').forEach((slide, i) => {
+        slide.classList.toggle('active', i === C);
+      });
+
+      document.getElementById('prog').style.width = ((C + 1) / T * 100) + '%';
     }
 
     function go(i) {
