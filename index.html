@@ -768,8 +768,8 @@
     }
 
     .promo-item {
-      flex: 1 1 280px;
-      max-width: 360px;
+      flex: 1 1 300px;
+      max-width: 380px;
       border: 1px solid rgba(212,175,55,.25);
       border-radius: 18px;
       background: rgba(255,255,255,.03);
@@ -786,10 +786,9 @@
 
     .promo-img-wrap {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1 / 1.1;
       overflow: hidden;
       background: #0A0F24;
-      border-bottom: 1px solid rgba(212,175,55,.15);
     }
 
     .promo-img-wrap img {
@@ -802,41 +801,6 @@
 
     .promo-item:hover .promo-img-wrap img {
       transform: scale(1.05);
-    }
-
-    .promo-info {
-      padding: 18px 20px 22px;
-    }
-
-    .promo-name {
-      margin-bottom: 8px;
-      color: #F5F7FB;
-      font-family: 'Manrope', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .promo-price {
-      margin-bottom: 10px;
-      color: #E8C65C;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(32px, 4vw, 44px);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .promo-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      border: 1px solid rgba(212,175,55,.3);
-      border-radius: 999px;
-      background: rgba(212,175,55,.08);
-      color: #E8C65C;
-      font-family: 'Manrope', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
     }
 
     .s4-note {
@@ -911,8 +875,6 @@
       .s4-title { font-size: 28px; }
       .s4-sub { margin-bottom: 24px; font-size: 13px; }
       .promo-card { padding: 18px 16px; }
-      .promo-info { padding: 14px 14px 18px; }
-      .promo-price { font-size: 36px; }
       .s4-actions { flex-direction: column; align-items: center; }
     }
 
@@ -1042,7 +1004,7 @@
             <div class="au d1 s3-kicker">Investimento</div>
 
             <h2 class="au d2 s3-title">
-              ÚNICO INVESTIMENTO. <span class="gt">INVESTIMENTO ÚNICO.</span>
+              <span class="gt">INVESTIMENTO ÚNICO.</span>
             </h2>
 
             <p class="au d3 s3-sub">
@@ -1136,28 +1098,16 @@
             </p>
 
             <div class="promo-card au d4">
-              <div class="promo-title">Os serviços agendados são <span class="gt2">promocionais</span> — feitos para atrair novas clientes:</div>
-
               <div class="promo-grid">
                 <div class="promo-item">
                   <div class="promo-img-wrap">
                     <img src="img/luzes.png" alt="Luzes e Morena Iluminada">
-                  </div>
-                  <div class="promo-info">
-                    <div class="promo-name">Luzes e Morena Iluminada</div>
-                    <div class="promo-price">R$ 199</div>
-                    <div class="promo-tag">Qualquer tamanho de cabelo</div>
                   </div>
                 </div>
 
                 <div class="promo-item">
                   <div class="promo-img-wrap">
                     <img src="img/progressiva.png" alt="Progressiva">
-                  </div>
-                  <div class="promo-info">
-                    <div class="promo-name">Progressiva</div>
-                    <div class="promo-price">R$ 99</div>
-                    <div class="promo-tag">Qualquer tamanho de cabelo</div>
                   </div>
                 </div>
               </div>
