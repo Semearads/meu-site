@@ -697,6 +697,146 @@
       flex-wrap: wrap;
     }
 
+    /* SLIDE 4 - QUEM PODE ADERIR */
+    .s4-wrap {
+      width: 100%;
+      max-width: 980px;
+      text-align: center;
+    }
+
+    .s4-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #D4AF37;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .s4-title {
+      margin: 0 auto 16px;
+      color: #F5F7FB;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.05;
+      text-align: center;
+      text-wrap: balance;
+      max-width: 760px;
+    }
+
+    .s4-title .gt { font-weight: 700; }
+
+    .s4-sub {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      color: #AAB3C5;
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(13px, 1.8vw, 16px);
+      letter-spacing: .01em;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .promo-card {
+      margin-bottom: 28px;
+      padding: 24px 28px;
+      border: 1px solid rgba(212,175,55,.2);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(212,175,55,.08), rgba(212,175,55,.02));
+    }
+
+    .promo-title {
+      margin-bottom: 14px;
+      color: #F5F7FB;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .promo-title .gt2 { color: #E8C65C; }
+
+    .promo-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .promo-item {
+      flex: 1 1 260px;
+      max-width: 340px;
+      padding: 22px 20px;
+      border: 1px solid rgba(212,175,55,.2);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      text-align: center;
+      transition: all .3s ease;
+    }
+
+    .promo-item:hover {
+      background: rgba(212,175,55,.06);
+      border-color: rgba(212,175,55,.4);
+      transform: translateY(-4px);
+    }
+
+    .promo-name {
+      margin-bottom: 10px;
+      color: #F5F7FB;
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .promo-price {
+      margin-bottom: 8px;
+      color: #E8C65C;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .promo-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border: 1px solid rgba(212,175,55,.3);
+      border-radius: 999px;
+      background: rgba(212,175,55,.08);
+      color: #E8C65C;
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .s4-note {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      padding: 16px 20px;
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 12px;
+      background: rgba(212,175,55,.04);
+      color: #AAB3C5;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .s4-note b { color: #E8C65C; }
+
+    .s4-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 768px) {
       .slide-center { padding: 80px 16px 110px; }
       .sc { bottom: 16px; left: 10px; padding: 6px 10px; font-size: 11px; }
@@ -711,6 +851,8 @@
       .examples { gap: 12px; }
       .example { flex: 1 1 100%; max-width: 100%; }
       .price-ticket { padding: 24px 32px; }
+      .promo-grid { gap: 12px; }
+      .promo-item { flex: 1 1 100%; max-width: 100%; }
     }
 
     @media (max-width: 640px) {
@@ -741,6 +883,13 @@
       .price-value { font-size: 52px; }
       .share-card { padding: 14px 16px; }
       .s3-actions { flex-direction: column; align-items: center; }
+
+      .s4-title { font-size: 28px; }
+      .s4-sub { margin-bottom: 24px; font-size: 13px; }
+      .promo-card { padding: 18px 16px; }
+      .promo-item { padding: 18px 14px; }
+      .promo-price { font-size: 36px; }
+      .s4-actions { flex-direction: column; align-items: center; }
     }
 
     @media (max-width: 380px) {
@@ -751,6 +900,7 @@
       .s2-title { font-size: 25px; }
       .s3-title { font-size: 25px; }
       .price-value { font-size: 46px; }
+      .s4-title { font-size: 25px; }
     }
 
     @media (max-width: 340px) {
@@ -760,12 +910,13 @@
       .s1-sub { font-size: 11px; }
       .s2-title { font-size: 22px; }
       .s3-title { font-size: 22px; }
+      .s4-title { font-size: 22px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" id="prog" style="width:33.3%"></div>
+  <div class="progress" id="prog" style="width:25%"></div>
 
   <button class="fs-btn" onclick="toggleFs()" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -774,7 +925,7 @@
     <span id="fsTxt">Tela cheia</span>
   </button>
 
-  <div class="sc"><span class="cn" id="cn">1</span> / 3</div>
+  <div class="sc"><span class="cn" id="cn">1</span> / 4</div>
   <div class="ind" id="ind"></div>
 
   <div class="presentation">
@@ -934,11 +1085,62 @@
             </p>
 
             <div class="s3-actions au d5">
+              <button type="button" class="cta-btn" onclick="go(3)">
+                QUEM PODE ADERIR AO PLANO
+              </button>
+
+              <button type="button" class="cta-btn outline" onclick="go(1)">
+                VOLTAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 - QUEM PODE ADERIR -->
+      <section class="slide">
+        <div class="slide-center">
+          <div class="s4-wrap">
+            <div class="au d1 s4-kicker">Quem pode aderir</div>
+
+            <h2 class="au d2 s4-title">
+              É BOM, <span class="gt">MAS NÃO É PRA TODO MUNDO.</span>
+            </h2>
+
+            <p class="au d3 s4-sub">
+              Se sua agenda já está cheia, talvez esta campanha não seja pra você.
+            </p>
+
+            <div class="promo-card au d4">
+              <div class="promo-title">Os serviços agendados são <span class="gt2">promocionais</span> — feitos para atrair novas clientes:</div>
+
+              <div class="promo-grid">
+                <div class="promo-item">
+                  <div class="promo-name">Luzes e Morena Iluminada</div>
+                  <div class="promo-price">R$ 199</div>
+                  <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                </div>
+
+                <div class="promo-item">
+                  <div class="promo-name">Progressiva</div>
+                  <div class="promo-price">R$ 99</div>
+                  <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="s4-note au d5">
+              <b>Atenção:</b> os valores promocionais são exclusivos para <b>novas clientes</b> captadas pela campanha.
+              O objetivo é lotar sua agenda e criar oportunidade de vender outros serviços no atendimento —
+              <b>que ficam 100% com você</b>.
+            </p>
+
+            <div class="s4-actions au d6">
               <a href="https://wa.me/5511910832222?text=Olá,%20quero%20lotar%20minha%20agenda!" target="_blank" rel="noopener" class="cta-btn">
                 QUERO LOTAR MINHA AGENDA
               </a>
 
-              <button type="button" class="cta-btn outline" onclick="go(1)">
+              <button type="button" class="cta-btn outline" onclick="go(2)">
                 VOLTAR
               </button>
             </div>
@@ -963,7 +1165,7 @@
   </div>
 
   <script>
-    const T = 3;
+    const T = 4;
     let C = 0;
 
     const W = document.getElementById('sw');
