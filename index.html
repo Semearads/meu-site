@@ -750,7 +750,7 @@
     }
 
     .promo-title {
-      margin-bottom: 14px;
+      margin-bottom: 20px;
       color: #F5F7FB;
       font-family: 'Manrope', sans-serif;
       font-size: 15px;
@@ -763,29 +763,53 @@
     .promo-grid {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .promo-item {
-      flex: 1 1 260px;
-      max-width: 340px;
-      padding: 22px 20px;
-      border: 1px solid rgba(212,175,55,.2);
-      border-radius: 16px;
+      flex: 1 1 280px;
+      max-width: 360px;
+      border: 1px solid rgba(212,175,55,.25);
+      border-radius: 18px;
       background: rgba(255,255,255,.03);
-      text-align: center;
+      overflow: hidden;
       transition: all .3s ease;
     }
 
     .promo-item:hover {
       background: rgba(212,175,55,.06);
-      border-color: rgba(212,175,55,.4);
+      border-color: rgba(212,175,55,.45);
       transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(212,175,55,.15);
+    }
+
+    .promo-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #0A0F24;
+      border-bottom: 1px solid rgba(212,175,55,.15);
+    }
+
+    .promo-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .promo-item:hover .promo-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .promo-info {
+      padding: 18px 20px 22px;
     }
 
     .promo-name {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #F5F7FB;
       font-family: 'Manrope', sans-serif;
       font-size: 16px;
@@ -793,7 +817,7 @@
     }
 
     .promo-price {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #E8C65C;
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(32px, 4vw, 44px);
@@ -851,7 +875,7 @@
       .examples { gap: 12px; }
       .example { flex: 1 1 100%; max-width: 100%; }
       .price-ticket { padding: 24px 32px; }
-      .promo-grid { gap: 12px; }
+      .promo-grid { gap: 14px; }
       .promo-item { flex: 1 1 100%; max-width: 100%; }
     }
 
@@ -887,7 +911,7 @@
       .s4-title { font-size: 28px; }
       .s4-sub { margin-bottom: 24px; font-size: 13px; }
       .promo-card { padding: 18px 16px; }
-      .promo-item { padding: 18px 14px; }
+      .promo-info { padding: 14px 14px 18px; }
       .promo-price { font-size: 36px; }
       .s4-actions { flex-direction: column; align-items: center; }
     }
@@ -1018,7 +1042,7 @@
             <div class="au d1 s3-kicker">Investimento</div>
 
             <h2 class="au d2 s3-title">
-              ÚNICO INVESTIMENTO. <span class="gt">RESULTADO PRA VIDA INTEIRA.</span>
+              ÚNICO INVESTIMENTO. <span class="gt">INVESTIMENTO ÚNICO.</span>
             </h2>
 
             <p class="au d3 s3-sub">
@@ -1116,15 +1140,25 @@
 
               <div class="promo-grid">
                 <div class="promo-item">
-                  <div class="promo-name">Luzes e Morena Iluminada</div>
-                  <div class="promo-price">R$ 199</div>
-                  <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                  <div class="promo-img-wrap">
+                    <img src="img/luzes.png" alt="Luzes e Morena Iluminada">
+                  </div>
+                  <div class="promo-info">
+                    <div class="promo-name">Luzes e Morena Iluminada</div>
+                    <div class="promo-price">R$ 199</div>
+                    <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                  </div>
                 </div>
 
                 <div class="promo-item">
-                  <div class="promo-name">Progressiva</div>
-                  <div class="promo-price">R$ 99</div>
-                  <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                  <div class="promo-img-wrap">
+                    <img src="img/progressiva.png" alt="Progressiva">
+                  </div>
+                  <div class="promo-info">
+                    <div class="promo-name">Progressiva</div>
+                    <div class="promo-price">R$ 99</div>
+                    <div class="promo-tag">Qualquer tamanho de cabelo</div>
+                  </div>
                 </div>
               </div>
             </div>
